@@ -29,16 +29,14 @@ def get_title(soup):
 def get_price(soup):
 
 	try:
-		price = soup.find("span", attrs={'id':'priceblock_ourprice'}).string.strip()
-
+        # Try to find the price using the "id" attribute
+		price = soup.find("span", attrs={'id':'priceblock_ourprice'}).get_text().strip()
 	except AttributeError:
-
 		try:
-			# If there is some deal price
-			price = soup.find("span",{"class":"a-price"}).find("span").text
-
-		except:		
-			price = ""	
+            # If there is some deal price
+			price = soup.find("span", {"class": "a-price"}).get_text().strip()
+		except:
+			price = "Price not available"
 
 	return price
 
