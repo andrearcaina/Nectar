@@ -15,3 +15,13 @@ cd Nectar
 git checkout <branch-name>
 ```
 https://www.pokemoncenter.com/en-ca/product/701E10076/wailord-poke-plush-57-in 
+
+## To install tailwindcss
+1. 
+```
+npm install
+```
+2. 
+```
+npm run build
+```
