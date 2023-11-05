@@ -4,7 +4,7 @@ from src.scrapey_multi import get_data_info
 def scraper(url):
     data = scrape(url)
     print(data)
-    num = 2
+    num = 1 #get info param
 
     title = data['title']
     price = data['price']
@@ -14,28 +14,25 @@ def scraper(url):
     splitter = title.split(' ')
     links = []
     total_links = 0
-    total_loops = 0
-    while len(splitter) >= 1 or total_loops < 6:
-        print(splitter)
-        s = get_data_info(splitter, num)
-        for i in s:
-            if i[0] <= float(price[1:].replace(',', '')):
-                links.append(i)
+    for i in range(0, 5):
+        s = get_data_info(splitter, num) # list of info of scraped objects
+        for n in s: # the specifci scarped obj
+            if n[0] <= float(price[1:].replace(',', '')): #0 is price
+                links.append(n)
                 total_links += 1
-        if len(splitter) >= 1:
+        if len(splitter) > 1: #reduce specifiy
             splitter.pop(-1)
-        if len(splitter) >= 1:
-            splitter.pop(-1)
-        total_loops += 1
+            splitter.pop(0)
+       
     
-    if total_links < num:
+    if total_links < num*3:
         rating = "high"
-    elif total_links < num*3:
+    elif total_links < num*7:
         rating = 'medium'
     else: 
         rating = 'low'
     
 
     # instead of return call get_data from scrapey_multi
-    return (links, rating)
+    return (s, rating)
 
