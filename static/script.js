@@ -19,7 +19,7 @@ $(document).ready(function() {
             contentType: 'application/json',
             
             beforeSend: function() {
-                $('#result1').text('Loading...');
+                $('#result1').text('Loading...🐝');
             },
 
             success: function(data) {
@@ -27,9 +27,9 @@ $(document).ready(function() {
                 const stde = Math.round(parseFloat(data.result[1]) * 10000) / 10000;
                 const voli = data.result[2];
 
-                $('#result1').text("Mean: $" + mean + ", Standard Deviation: " + stde + ", Volatility: " + voli);
+                $('#result1').text("Mean: $" + mean + " | Standard Deviation: " + stde + " | Volatility: " + voli);
 
-                const infoText = "You should consider selling at this price. Volatility represents the degree of price variation, and Standard Deviation is a measure of price volatility.";
+                const infoText = "The mean is the average market price -- consider selling here. \n Volatility represents the degree of price variation -- if it is high your item either is very volatile, or your prompts are too broad. \n Standard Deviation is a measure of price volatility.";
                 $('#additional-info').text(infoText);
             },
             
