@@ -66,11 +66,13 @@ $(document).ready(function() {
                     $('#result2').empty();
 
                     // Iterate through the list of lists
-                    for (let i = 0; i < data.result.length; i++) {
-                        const sublist = data.result[i];
-                        const price = sublist[0];
-                        const title = sublist[1];
-                        const link = sublist[2]; // Assuming the 3rd item is the link
+                    const sublist = data.result[0];
+                    for (let i = 0; i < sublist.length; i++) {
+                        
+                        console.log(sublist)
+                        const price = sublist[i][0];
+                        const title = sublist[i][1];
+                        const link = sublist[i][3]; // Assuming the 3rd item is the link
 
                         // Create a card element using Tailwind CSS classes
                         const card = $('<div class="bg-white shadow-md rounded-lg p-4 mb-4">');

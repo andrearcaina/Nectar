@@ -21,7 +21,7 @@ def scrape(target_url):
         data["title"]=None
 
     images = re.findall('"hiRes":"(.+?)"', resp.text)
-    data["image"]=images[0]
+    data["image"]=""
 
     try:
         data["price"]=soup.find("span",{"class":"a-price"}).find("span").text

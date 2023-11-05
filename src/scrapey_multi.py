@@ -6,17 +6,17 @@ import math
 import re
 
 
-tags = ["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4999.99 Safari/537.36",
+tags = ["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Opera/100.0.4999.99",
 
-"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Firefox/101.0",
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Vivaldi/5.0.4999.99",
 
-"Mozilla/5.0 (Windows NT 11.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edge/102.0",
+"Mozilla/5.0 (Windows NT 11.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Brave/1.0.0",
 
-"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16_0) AppleWebKit/537.36 (KHTML, like Gecko) Safari/15.0",
+"Mozilla/5.0 (Linux; Android 12; Pixel 6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.0.0 Mobile Safari/537.36",
 
-"Mozilla/5.0 (Linux; Android 11; SM-G975U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4999.99 Mobile Safari/537.36",
+"Mozilla/5.0 (iPad; CPU OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/605.1",
 
-"Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1"]
+"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Microsoft Edge/101.0.0.0"]
 
 # Function to extract Product Title
 def get_title(soup):
@@ -32,8 +32,8 @@ def get_title(soup):
 def get_image(soup):
 	images = re.findall('"hiRes":"(.+?)"', soup.text)
 	image = ""
-	if images != []: image=images[0]
-	return image
+	#if images != []: image=images[0]
+	return ""
 
 # Function to extract Product Price
 def get_price(soup):
