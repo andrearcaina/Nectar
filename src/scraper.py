@@ -22,7 +22,7 @@ def scraper(url):
                 total_links += 1
         if len(splitter) > 1: #reduce specifiy
             splitter.pop(-1)
-            splitter.pop(0)
+           # splitter.pop(0) #optional
        
     
     if total_links < num*3:

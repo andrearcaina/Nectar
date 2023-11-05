@@ -23,7 +23,7 @@ def process_input():
         scrape = scraper(user_input)
         output = ""
         for i in scrape[0]:
-            output = output + "| " + scrape[0][1] + " "
+            output = output + "| " + i[1] + " "
         output = output + "  |||  " + scrape[1]
         return jsonify({'result': scrape})
 
