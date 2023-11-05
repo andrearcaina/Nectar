@@ -1,6 +1,9 @@
 from bs4 import BeautifulSoup
 import requests
 import random
+import statistics
+import math
+
 
 tags = ["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Firefox/100.0",
 
@@ -24,6 +27,12 @@ def get_title(soup):
 
 	return title_string
 
+#Function to extract image
+def get_image(soup):
+	images = re.findall('"hiRes":"(.+?)"', resp.text)
+	image=images[0]
+	return image
+
 # Function to extract Product Price
 def get_price(soup):
 	try:
@@ -42,7 +51,7 @@ def get_rating(soup):
 		try:
 			rating = soup.find("span", attrs={'class':'a-icon-alt'}).string.strip()
 		except:
-			rating = "Price not available"	
+			rating = "Rating not available"	
 
 	return rating[1:]
 
@@ -67,7 +76,7 @@ def get_availability(soup):
 
 	return available	
 
-def get_data(prompt):
+def get_data(prompt, num: int):
 	results = []
 	agentTag = tags[random.randint(0, 5)]
 	HEADERS = ({'User-Agent':
@@ -75,7 +84,7 @@ def get_data(prompt):
 					'Accept-Language': 'en-US'})
 	arr = []
 
-	while (len(results) < 2):
+	while (len(results) <= num):
 		
 		search = "+".join(prompt)
 
@@ -102,19 +111,23 @@ def get_data(prompt):
 		# Loop for extracting product details from each link 
 		for link in links_list:
 			print(link)
-			if len(results) == 10:
+			if len(results) == num:
 				break
 			new_webpage = requests.get("https://www.amazon.com" + link, headers=HEADERS)
 			print('hel')
 			new_soup = BeautifulSoup(new_webpage.content, "lxml")
 			print('hell')
 			price = get_price(new_soup)
+			rating = get_rating(new_soup)
+			review = get_review_count(new_soup)
+			availability = get_availability(new_soup)
+			image = get_image(new_soup)
 			print(price)
 			if price == "Price not available" or price == "":
 				print("")
 			else:
 				print(price)
-				arr = [float(price)]
+				arr = [float(price), rating, review, availability, image]
 				results.append(arr)
 				print(results)
 		if prompt != []:
@@ -122,9 +135,14 @@ def get_data(prompt):
 
 	# the average price -- change algo later
 	print(results)
+	results_pricing = []
 	total = 0
 	for r in results:
+		results_pricing.append(r[0]) 
 		total += r[0]
-	total = total/10
 
+	sd = statistics.stdev(results_pricing)
+	total = total/num
+
+	
 	return total
