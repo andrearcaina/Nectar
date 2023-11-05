@@ -17,7 +17,8 @@ def process_input():
     if (additional_data == "selling"):
         # Process the user input as needed
         result = f"You entered: {user_input}"
-        return jsonify({'result': result})
+        total = get_data(user_input.split(' '), 3)
+        return jsonify({'result': total})
     elif(additional_data == "buying"):
         scrape = scraper(user_input)
         output = ""

@@ -145,7 +145,7 @@ def get_data(prompt, num: int):
 		total += r[0]
 
 	sd = statistics.stdev(results_pricing)
-	total = total/num
+	total = total/(num+1)
 	
 	return total
 
