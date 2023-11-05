@@ -56,8 +56,37 @@ $(document).ready(function() {
                 }),
                 contentType: 'application/json',
     
+                beforeSend: function() {
+                    $('#result2').text('Loading...');
+                },
+
                 success: function(data) {
-                    $('#result2').text(data.result);
+                    $('#result2').empty();
+                    
+                    $('#result2').empty();
+
+                    // Iterate through the list of lists
+                    for (let i = 0; i < data.result.length; i++) {
+                        const sublist = data.result[i];
+                        const price = sublist[0];
+                        const title = sublist[1];
+                        const link = sublist[2]; // Assuming the 3rd item is the link
+
+                        // Create a card element using Tailwind CSS classes
+                        const card = $('<div class="bg-white shadow-md rounded-lg p-4 mb-4">');
+
+                        // Create a link element with Tailwind CSS classes
+                        const linkElement = $('<a class="text-blue-500 hover:underline" href="' + link + '" target="_blank">').text(title);
+
+                        // Create a price element using Tailwind CSS classes
+                        const priceElement = $('<p class="text-gray-700">').text(`Price: $${price}`);
+
+                        // Append the link and price to the card
+                        card.append(linkElement, priceElement);
+
+                        // Append the card to #result2
+                        $('#result2').append(card);
+                    }
                 },
     
                 error: function() {
