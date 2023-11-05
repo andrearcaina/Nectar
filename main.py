@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('get.html')
+    return render_template('test.html')
 
 @app.route('/process_input', methods=['POST'])
 def process_input():
@@ -15,6 +15,4 @@ def process_input():
     return jsonify({'result': result})
 
 if __name__ == '__main__':
-    totals = get_data(["shoes","cool","red"])
-    print(totals)
-    app.run()
+    app.run(debug=True)
