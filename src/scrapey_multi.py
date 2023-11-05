@@ -1,5 +1,18 @@
 from bs4 import BeautifulSoup
 import requests
+import random
+
+tags = ["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Firefox/100.0",
+
+"Mozilla/5.0 (Windows NT 11.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edge/101.0",
+
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4999.99 Safari/537.36",
+
+"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Firefox/100.0",
+
+"Mozilla/5.0 (Windows NT 11.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Safari/15.0",
+
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Edge/101.0"]
 
 # Function to extract Product Title
 def get_title(soup):
@@ -56,8 +69,9 @@ def get_availability(soup):
 
 def get_data(prompt):
 	results = []
+	agentTag = tags[random.randint(0, 5)]
 	HEADERS = ({'User-Agent':
-					'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Firefox/98.0',
+					agentTag,
 					'Accept-Language': 'en-US'})
 	arr = []
 
@@ -69,6 +83,9 @@ def get_data(prompt):
 		# HTTP Request
 		webpage = requests.get(URL, headers=HEADERS)
 		print(webpage)
+		if webpage.status_code == 503: 
+			agentTag = tags[random.randint(0, 5)]
+			break
 		# Soup Object containing all data
 		soup = BeautifulSoup(webpage.content, "lxml")
 
