@@ -31,14 +31,17 @@ def get_price(soup):
 	try:
         # Try to find the price using the "id" attribute
 		price = soup.find("span", attrs={'id':'priceblock_ourprice'}).get_text().strip()
+		
+
+
 	except AttributeError:
 		try:
             # If there is some deal price
 			price = soup.find("span", {"class": "a-price"}).get_text().strip()
 		except:
-			price = "Price not available"
+			price = " Price not available"
 
-	return price
+	return price[1:]
 
 # Function to extract Product Rating
 def get_rating(soup):
@@ -76,48 +79,52 @@ def get_availability(soup):
 
 	return available	
 
+def get_data(prompt):
+	results = []
 
-if __name__ == '__main__':
+	while (len(results) < 10):
+		HEADERS = ({'User-Agent':
+					'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36',
+					'Accept-Language': 'en-US'})
 
-	# Headers for request
-	HEADERS = ({'User-Agent':
-	            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36',
-	            'Accept-Language': 'en-US'})
+		search = "+".join(prompt)
 
-	# The webpage URL
-	URL = "https://www.amazon.com/s?k=iphone&ref=nb_sb_noss_2"
-	
-	# HTTP Request
-	webpage = requests.get(URL, headers=HEADERS)
+		URL = "https://www.amazon.com/s?k="+search+"&ref=nb_sb_noss_2"
 
-	# Soup Object containing all data
-	soup = BeautifulSoup(webpage.content, "lxml")
+		URL = "https://www.amazon.com/s?k=shoes&ref=nb_sb_noss_2"
 
-	# Fetch links as List of Tag Objects
-	links = soup.find_all("a", attrs={'class':'a-link-normal s-no-outline'})
+		# HTTP Request
+		webpage = requests.get(URL, headers=HEADERS)
 
-	# Store the links
-	links_list = []
+		# Soup Object containing all data
+		soup = BeautifulSoup(webpage.content, "lxml")
 
-	# Loop for extracting links from Tag Objects
-	for link in links:
-		links_list.append(link.get('href'))
+		# Fetch links as List of Tag Objects
+		links = soup.find_all("a", attrs={'class':'a-link-normal s-no-outline'})
+
+		# Store the links
+		links_list = []
+
+		# Loop for extracting links from Tag Objects
+		for link in links:
+			links_list.append(link.get('href'))
+
+		# Loop for extracting product details from each link 
+		for link in links_list:
+			if len(results) == 20:
+				break
+			new_webpage = requests.get("https://www.amazon.com" + link, headers=HEADERS)
+			new_soup = BeautifulSoup(new_webpage.content, "lxml")
+			
+			print(get_price(new_soup))
+
+			arr = [float(get_price(new_soup))]
 		
+			results.append(arr)
 
+		prompt.pop(-1)
 
-	# Loop for extracting product details from each link 
-	for link in links_list:
-		if links_list[10] == link:
-			break
-		new_webpage = requests.get("https://www.amazon.com" + link, headers=HEADERS)
+	# the average price -- change algo later
+	total = sum(arr)/20
 
-		new_soup = BeautifulSoup(new_webpage.content, "lxml")
-		
-		# Function calls to display all necessary product information
-		print("Product Title =", get_title(new_soup))
-		print("Product Price =", get_price(new_soup))
-		print("Product Rating =", get_rating(new_soup))
-		print("Number of Product Reviews =", get_review_count(new_soup))
-		print("Availability =", get_availability(new_soup))
-		print()
-		print()
+	return total

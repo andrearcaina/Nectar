@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from src.scrapey_multi import get_data
 app = Flask(__name__)
 
 @app.route('/')
@@ -14,4 +15,6 @@ def process_input():
     return jsonify({'result': result})
 
 if __name__ == '__main__':
+    totals = get_data(["shoes","nike","black"])
+    print(totals)
     app.run()
