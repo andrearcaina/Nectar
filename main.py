@@ -5,5 +5,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+
+#@app.route('/contactpage')
+#def contact():
+#    return return_template('contact.html')
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
