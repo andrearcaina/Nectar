@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.edubeginner-font {
+  font-family: 'Edu TAS Beginner', sans-serif;
+}
+
+.btn {
+  @apply font-bold py-2 px-4 rounded;
+}
+.btn-blue {
+  @apply bg-blue-500 text-white;
+}
+.btn-blue:hover {
+  @apply bg-blue-700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-105%);
+  }
+}
+
+.pictures {
+  overflow: hidden;
+  padding: 60px 0;
+  background: white;
+}
+
+.pictures-slide {
+  animation: 15s slide infinite linear;
+}
+
+.pictures-slide img {
+  height: 250px;
+  width: auto;
+  margin: 0 40px;
+}
