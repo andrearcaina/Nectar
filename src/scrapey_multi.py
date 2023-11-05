@@ -146,7 +146,8 @@ def get_data(prompt, num: int):
 
 	total = total/(num+1)
 
-	s = statistics.stdev(results_pricing)
+	if len(results_pricing) > 1: s = statistics.stdev(results_pricing)
+	else: s = 0
 	vol = "high"
 	if s*s < total:
 		vol = "low"

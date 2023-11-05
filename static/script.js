@@ -17,9 +17,20 @@ $(document).ready(function() {
                 'additional_data': "selling"
             }),
             contentType: 'application/json',
-    
+            
+            beforeSend: function() {
+                $('#result1').text('Loading...');
+            },
+
             success: function(data) {
-                $('#result1').text(data.result);
+                const mean = Math.round(parseFloat(data.result[0]) * 10000) / 10000;
+                const stde = Math.round(parseFloat(data.result[1]) * 10000) / 10000;
+                const voli = data.result[2];
+
+                $('#result1').text("Mean: $" + mean + ", Standard Deviation: " + stde + ", Volatility: " + voli);
+
+                const infoText = "You should consider selling at this price. Volatility represents the degree of price variation, and Standard Deviation is a measure of price volatility.";
+                $('#additional-info').text(infoText);
             },
             
             error: function() {
