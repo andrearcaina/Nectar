@@ -57,11 +57,11 @@ def get_availability(soup):
 def get_data(prompt):
 	results = []
 	HEADERS = ({'User-Agent':
-					'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Safari/14.1.2',
+					'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Firefox/98.0',
 					'Accept-Language': 'en-US'})
 	arr = []
 
-	while (len(results) < 10):
+	while (len(results) < 2):
 		
 		search = "+".join(prompt)
 
@@ -86,7 +86,7 @@ def get_data(prompt):
 		for link in links_list:
 			print(link)
 			if len(results) == 10:
-				exit
+				break
 			new_webpage = requests.get("https://www.amazon.com" + link, headers=HEADERS)
 			print('hel')
 			new_soup = BeautifulSoup(new_webpage.content, "lxml")
@@ -105,6 +105,9 @@ def get_data(prompt):
 
 	# the average price -- change algo later
 	print(results)
-	total = sum(results[0])/10
+	total = 0
+	for r in results:
+		total += r[0]
+	total = total/10
 
 	return total
