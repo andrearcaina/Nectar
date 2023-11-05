@@ -86,7 +86,7 @@ def get_data(prompt, num: int):
 					'Accept-Language': 'en-US'})
 	arr = []
 
-	while (len(results) <= num):
+	while (len(results) <= num) and prompt != []:
 		
 		search = "+".join(prompt)
 
