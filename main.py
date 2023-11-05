@@ -15,6 +15,4 @@ def process_input():
     return jsonify({'result': result})
 
 if __name__ == '__main__':
-    totals = get_data(["shoes","cool","red"], 10)
-    print(totals)
     app.run()
