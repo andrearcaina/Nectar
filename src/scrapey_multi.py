@@ -21,7 +21,7 @@ tags = ["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHT
 # Function to extract Product Title
 def get_title(soup):
 	try:
-		title = soup.find("span", attrs={"id":'productTitle'}).string.strip()
+		title_string = soup.find("span", attrs={"id":'productTitle'}).string.strip()
 
 	except AttributeError:
 		title_string = ""	
@@ -146,6 +146,66 @@ def get_data(prompt, num: int):
 
 	sd = statistics.stdev(results_pricing)
 	total = total/num
-
 	
 	return total
+
+def get_data_info(prompt, num: int):
+	results = []
+	agentTag = tags[random.randint(0, 5)]
+	HEADERS = ({'User-Agent':
+					agentTag,
+					'Accept-Language': 'en-US'})
+	arr = []
+
+	while (len(results) <= num):
+		
+		search = "+".join(prompt)
+
+		URL = "https://www.amazon.com/s?k="+search+"&ref=nb_sb_noss_2"
+		# HTTP Request
+		webpage = requests.get(URL, headers=HEADERS)
+		print(webpage)
+		if webpage.status_code == 503: 
+			agentTag = tags[random.randint(0, 5)]
+			break
+		# Soup Object containing all data
+		soup = BeautifulSoup(webpage.content, "lxml")
+
+		# Fetch links as List of Tag Objects
+		links = soup.find_all("a", attrs={'class':'a-link-normal s-no-outline'}, limit=50)
+
+		# Store the links
+		links_list = []
+
+		# Loop for extracting links from Tag Objects
+		for link in links:
+			if not ('/sspa' in link.get('href')):
+				links_list.append(link.get('href'))
+
+		# Loop for extracting product details from each link 
+		for link in links_list:
+			print(link)
+			if len(results) > num:
+				break
+			new_webpage = requests.get("https://www.amazon.com" + link, headers=HEADERS)
+			print('hel')
+			new_soup = BeautifulSoup(new_webpage.content, "lxml")
+			print('hell')
+			price = get_price(new_soup)
+			# rating = get_rating(new_soup)
+			# review = get_review_count(new_soup)
+			# availability = get_availability(new_soup)
+			title = get_title(new_soup)
+			image = get_image(new_soup)
+			print(price)
+			if price == "Price not available" or price == "":
+				print("")
+			else:
+				print(price)
+				arr = [float(price), title, image, "https://www.amazon.com" + link] #, rating, review, availability, image]
+				results.append(arr)
+				print(results)
+		if prompt != []:
+			prompt.pop(-1)
+	
+	return results

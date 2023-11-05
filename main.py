@@ -20,6 +20,10 @@ def process_input():
         return jsonify({'result': result})
     elif(additional_data == "buying"):
         scrape = scraper(user_input)
+        output = ""
+        for i in scrape[0]:
+            output = output + "| " + scrape[0][1] + " "
+        output = output + "  |||  " + scrape[1]
         return jsonify({'result': scrape})
 
 
