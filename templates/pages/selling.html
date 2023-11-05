@@ -12,14 +12,21 @@
 </head>
 <body>
     {% include 'components/navbar.html' %}
-    <h1>selling</h1>
 
-    <form>
-        <input type="text" id="user-sell" name="user_sell" placeholder="selling" required>
-        <button id="selling-input" type="button">sell button</button>
-    </form>
-
-    <div id="result1"></div>
+    <div class="container mx-auto p-4 text-center">
+        <h1 class="text-yellow-400 text-3xl font-bold">Selling</h1>
+    
+        <div class="mt-4">
+            <p class="text-gray-600">Prompt the form like: "shoe black nike" with spaces in between.</p>
+        </div>
+    
+        <form id="selling-form" class="mt-4">
+            <input type="text" id="user-sell" name="user_sell" placeholder="Enter your item description" required class="w-full px-3 py-2 border rounded-lg">
+            <button id="selling-input" type="button" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none">Sell</button>
+        </form>
+        
+        <div id="result1" class="mt-4 text-red-600"></div>
+    </div>    
 
     {% include 'components/footer.html' %}
 </body>
