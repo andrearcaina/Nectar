@@ -144,10 +144,14 @@ def get_data(prompt, num: int):
 		results_pricing.append(r[0]) 
 		total += r[0]
 
-	sd = statistics.stdev(results_pricing)
 	total = total/(num+1)
+
+	s = statistics.stdev(results_pricing)
+	vol = "high"
+	if s*s < total:
+		vol = "low"
 	
-	return total
+	return (total, s, vol)
 
 def get_data_info(prompt, num: int):
 	results = []
