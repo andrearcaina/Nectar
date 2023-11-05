@@ -1,5 +1,5 @@
 # Nectar
-Welcome to Nectar, an Ecommerce app made for the client! 
+Welcome to Nectar, your personalized e-commerce solution, meticulously crafted to cater to your every need. Discover a world of seamless shopping tailored just for you. Shop smarter, shop Nectar.
 
 ## Functionality
 ### Current Functionality
@@ -22,7 +22,28 @@ Another functionality we want to implement is a compare two items, and see which
 
 We also would like to proper display the statistical modeling simulation for both our buy and sell, and use a bigger dataset upon further optimizatoion of algorithms. 
 
-##
+## Before...
+- You need:
+    - Git
+    - Node.js
+    - Python
+    - venv installed
+- venv can be installed by (depending on OS):
+- Windows
+```
+py -3 -m venv venv
+venv\Scripts\activate
+```
+- Linux
+```
+python3 -m venv venv
+. venv/bin/activate 
+```
+- Flask
+```
+pip install flask
+```
+
 ## Cloning the Web Application
 1. Clone the repo.
 ```
@@ -34,8 +55,8 @@ cd Nectar
 ```
 3. In your virtual environment, made sure you run main.py (depending on your os, this will be different). After that, see below for tailwind formatting.
 ```
-    py main.py # for windows
-    python main.py # for mac/linux
+py main.py # for windows
+python main.py # for mac/linux
 ```
 
 
@@ -45,7 +66,7 @@ Nectar uses Tailwind css. Run the following to get formatting, along with the fl
 
 To get started with that, see below.
 
-1. Ensure you install npm.
+1. Ensure you install dependencies.
 ```
 npm install
 ```
