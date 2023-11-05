@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('test.html')
+    return render_template('index.html')
 
 @app.route('/process_input', methods=['POST'])
 def process_input():

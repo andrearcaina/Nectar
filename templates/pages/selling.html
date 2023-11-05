@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{ url_for('static', filename='nectar.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tailwind.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
     <title>Nectar</title>
     
 </head>
 <body>
     {% include 'components/navbar.html' %}
-    <h1>
-        Selling
-    </h1>
+    <h1>selling</h1>
+
+    <form>
+        <input type="text" id="user-sell" name="user_sell" placeholder="selling" required>
+        <button id="selling-input" type="button">sell button</button>
+    </form>
+
+    <div id="result1"></div>
+
     {% include 'components/footer.html' %}
 </body>
 </html>
