@@ -3,6 +3,7 @@ import requests
 import random
 import statistics
 import math
+import re
 
 
 tags = ["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Firefox/100.0",
@@ -29,8 +30,9 @@ def get_title(soup):
 
 #Function to extract image
 def get_image(soup):
-	images = re.findall('"hiRes":"(.+?)"', resp.text)
-	image=images[0]
+	images = re.findall('"hiRes":"(.+?)"', soup.text)
+	image = ""
+	if images != []: image=images[0]
 	return image
 
 # Function to extract Product Price
@@ -106,28 +108,29 @@ def get_data(prompt, num: int):
 
 		# Loop for extracting links from Tag Objects
 		for link in links:
-			links_list.append(link.get('href'))
+			if not ('/sspa' in link.get('href')):
+				links_list.append(link.get('href'))
 
 		# Loop for extracting product details from each link 
 		for link in links_list:
 			print(link)
-			if len(results) == num:
+			if len(results) > num:
 				break
 			new_webpage = requests.get("https://www.amazon.com" + link, headers=HEADERS)
 			print('hel')
 			new_soup = BeautifulSoup(new_webpage.content, "lxml")
 			print('hell')
 			price = get_price(new_soup)
-			rating = get_rating(new_soup)
-			review = get_review_count(new_soup)
-			availability = get_availability(new_soup)
-			image = get_image(new_soup)
+			# rating = get_rating(new_soup)
+			# review = get_review_count(new_soup)
+			# availability = get_availability(new_soup)
+			# image = get_image(new_soup)
 			print(price)
 			if price == "Price not available" or price == "":
 				print("")
 			else:
 				print(price)
-				arr = [float(price), rating, review, availability, image]
+				arr = [float(price)] #, rating, review, availability, image]
 				results.append(arr)
 				print(results)
 		if prompt != []:
