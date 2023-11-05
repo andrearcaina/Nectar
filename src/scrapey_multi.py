@@ -157,7 +157,7 @@ def get_data_info(prompt, num: int):
 					'Accept-Language': 'en-US'})
 	arr = []
 
-	while (len(results) <= num):
+	while (len(results) <= num) and prompt != []:
 		
 		search = "+".join(prompt)
 
@@ -188,9 +188,7 @@ def get_data_info(prompt, num: int):
 			if len(results) > num:
 				break
 			new_webpage = requests.get("https://www.amazon.com" + link, headers=HEADERS)
-			print('hel')
 			new_soup = BeautifulSoup(new_webpage.content, "lxml")
-			print('hell')
 			price = get_price(new_soup)
 			# rating = get_rating(new_soup)
 			# review = get_review_count(new_soup)
@@ -201,7 +199,6 @@ def get_data_info(prompt, num: int):
 			if price == "Price not available" or price == "":
 				print("")
 			else:
-				print(price)
 				arr = [float(price), title, image, "https://www.amazon.com" + link] #, rating, review, availability, image]
 				results.append(arr)
 				print(results)

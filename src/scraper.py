@@ -15,6 +15,7 @@ def scraper(url):
     links = []
     total_links = 0
     for i in range(0, 5):
+        print(splitter)
         s = get_data_info(splitter, num) # list of info of scraped objects
         for n in s: # the specifci scarped obj
             if n[0] <= float(price[1:].replace(',', '')): #0 is price
