@@ -3,22 +3,8 @@ import requests
 
 # Function to extract Product Title
 def get_title(soup):
-	
 	try:
-		# Outer Tag Object
-		title = soup.find("span", attrs={"id":'productTitle'})
-
-		# Inner NavigatableString Object
-		title_value = title.string
-
-		# Title as a string value
-		title_string = title_value.strip()
-
-		# # Printing types of values for efficient understanding
-		# print(type(title))
-		# print(type(title_value))
-		# print(type(title_string))
-		# print()
+		title = soup.find("span", attrs={"id":'productTitle'}).string.strip()
 
 	except AttributeError:
 		title_string = ""	
@@ -27,17 +13,25 @@ def get_title(soup):
 
 # Function to extract Product Price
 def get_price(soup):
+    try:
+        # Try to find the price using a more specific selector
+        price_element = soup.find("span", {"class": "a-price-whole"})
+        
+        if price_element:
+            price = price_element.get_text().strip()
+            
+            # Check if there are decimal points in the price
+            decimal_element = soup.find("span", {"class": "a-price-fraction"})
+            if decimal_element:
+                price += "." + decimal_element.get_text().strip()
+            
+            return price
 
-	try:
-		price=soup.find("span",{"class":"a-price"}).find("span").text
-	except: 
-		price=" Price not available"
-
-	return price[1:].replace(',','')
+    except AttributeError:
+        return "Price not available"
 
 # Function to extract Product Rating
 def get_rating(soup):
-
 	try:
 		rating = soup.find("i", attrs={'class':'a-icon a-icon-star a-star-4-5'}).string.strip()
 		
@@ -74,14 +68,17 @@ def get_availability(soup):
 def get_data(prompt):
 	results = []
 	HEADERS = ({'User-Agent':
-					'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.9999.99 Safari/537.36',
+					'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Safari/14.1.2',
 					'Accept-Language': 'en-US'})
+	arr = []
 
-	while (len(results) < 10):
+	while (len(results) < 3):
 		
 		search = "+".join(prompt)
 
 		URL = "https://www.amazon.com/s?k="+search+"&ref=nb_sb_noss_2"
+
+		URL = "https://www.amazon.com/s?k="+"shoes"+"&ref=nb_sb_noss_2"
 
 		# HTTP Request
 		webpage = requests.get(URL, headers=HEADERS)
@@ -97,15 +94,13 @@ def get_data(prompt):
 
 		# Loop for extracting links from Tag Objects
 		for link in links:
-			if link == links[10]:
-				break
 			links_list.append(link.get('href'))
 
 		# Loop for extracting product details from each link 
 		for link in links_list:
 			print(link)
 			if len(results) == 10:
-				break
+				exit
 			new_webpage = requests.get("https://www.amazon.com" + link, headers=HEADERS)
 			new_soup = BeautifulSoup(new_webpage.content, "lxml")
 			price = get_price(new_soup)
@@ -115,11 +110,12 @@ def get_data(prompt):
 			else:
 				arr = [float(price)]
 				results.append(arr)
+				print(results)
 		if prompt != []:
 			prompt.pop(-1)
 
 	# the average price -- change algo later
-	print(sum(arr))
-	total = sum(arr)/10
+	print(results)
+	total = sum(results[0])/10
 
 	return total
