@@ -13,22 +13,11 @@ def get_title(soup):
 
 # Function to extract Product Price
 def get_price(soup):
-    try:
-        # Try to find the price using a more specific selector
-        price_element = soup.find("span", {"class": "a-price-whole"})
-        
-        if price_element:
-            price = price_element.get_text().strip()
-            
-            # Check if there are decimal points in the price
-            decimal_element = soup.find("span", {"class": "a-price-fraction"})
-            if decimal_element:
-                price += "." + decimal_element.get_text().strip()
-            
-            return price
-
-    except AttributeError:
-        return "Price not available"
+	try:
+		price=soup.find("span",{"class":"a-price"}).find("span").text
+	except:
+		price=" Price not available"
+	return price[1:].replace(',', '')
 
 # Function to extract Product Rating
 def get_rating(soup):
@@ -40,7 +29,7 @@ def get_rating(soup):
 		try:
 			rating = soup.find("span", attrs={'class':'a-icon-alt'}).string.strip()
 		except:
-			rating = ""	
+			rating = "Price not available"	
 
 	return rating[1:]
 
@@ -72,22 +61,19 @@ def get_data(prompt):
 					'Accept-Language': 'en-US'})
 	arr = []
 
-	while (len(results) < 3):
+	while (len(results) < 10):
 		
 		search = "+".join(prompt)
 
 		URL = "https://www.amazon.com/s?k="+search+"&ref=nb_sb_noss_2"
-
-		URL = "https://www.amazon.com/s?k="+"shoes"+"&ref=nb_sb_noss_2"
-
 		# HTTP Request
 		webpage = requests.get(URL, headers=HEADERS)
-
+		print(webpage)
 		# Soup Object containing all data
 		soup = BeautifulSoup(webpage.content, "lxml")
 
 		# Fetch links as List of Tag Objects
-		links = soup.find_all("a", attrs={'class':'a-link-normal s-no-outline'})
+		links = soup.find_all("a", attrs={'class':'a-link-normal s-no-outline'}, limit=50)
 
 		# Store the links
 		links_list = []
@@ -102,12 +88,15 @@ def get_data(prompt):
 			if len(results) == 10:
 				exit
 			new_webpage = requests.get("https://www.amazon.com" + link, headers=HEADERS)
+			print('hel')
 			new_soup = BeautifulSoup(new_webpage.content, "lxml")
+			print('hell')
 			price = get_price(new_soup)
 			print(price)
 			if price == "Price not available" or price == "":
 				print("")
 			else:
+				print(price)
 				arr = [float(price)]
 				results.append(arr)
 				print(results)
