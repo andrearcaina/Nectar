@@ -10,10 +10,11 @@
 
 [![FLASK](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
 )](https://flask.palletsprojects.com/en/3.0.x/) [![NODE.JS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
-)](https://nodejs.org/en) [![JQUERY](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+)](https://nodejs.org/en) [![GIT](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white
+)](https://git-scm.com/) [![JQUERY](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 )](https://jquery.com/)  [![TAILWINDCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
 )](https://tailwindcss.com/) 
-
+- **BeautifulSoup4**
 ## Languages
 
 <a href="https://www.python.org/" target="_blank" rel="noreferrer"> 
@@ -52,25 +53,31 @@
 <hr>
 
 ## Functionality
-### Current Functionality
-Currently, Nectar is ran on the local, webscraping through different websites to optimize your shopping (and selling!) experience!
+Welcome to Nectar - Your Ultimate Shopping and Selling Companion!
 
-We have (as of 2023) a domain name for the future of Nectar! 
+Current Features (as of 2023):
 
-```www.nectar.compare```
+Nectar is your go-to destination for smarter shopping and more profitable selling.
 
-Nectar is able to currently compare prices to similar items you are shopping for, and analyze market value for a product you want to sell!
+🛒 Buy Menu: Looking to save money and make informed purchase decisions? Head to the "Buy" menu! Nectar compares prices of similar items, helping you find the best deals on the products you love.
 
-To compare prices, and other cool statistcal related functionalities, direct yourself to the buy menu.
+💰 Sell Menu: Ready to sell your items? Explore the "Sell" menu! Nectar offers valuable insights into the market value of your products, helping you maximize your profits.
 
-To see market price for an item you want to sell and other related cool statistical functiaonlities, direct yourself to the sell menu.
+BUT!
 
-### Future Functionality
-In the future, we want to be able to hold a database (using google cloud) of websites. This would prove as a way to include sponsored companies or websites, or a catered dataset of websites for specific key tags.
+We're not stopping here! Nectar has exciting plans for the future:
 
-Another functionality we want to implement is a compare two items, and see which one the user should buy based on specific parameters from the webscrape call. 
+🌐 Expanded Database: We're working on creating a comprehensive database using Google Cloud. This will allow us to include sponsored companies and websites, as well as curate specific datasets for unique key tags, enhancing your shopping and selling experience.
 
-We also would like to proper display the statistical modeling simulation for both our buy and sell, and use a bigger dataset upon further optimizatoion of algorithms. 
+🤝 Compare Two Items: Want to make a choice between two items? Nectar will soon provide a feature to compare two products based on specific parameters obtained from our web scraping technology, helping you make the right decision.
+
+📈 Enhanced Statistical Modeling: We're committed to improving our statistical modeling simulations for both buying and selling. Our goal is to provide you with even more accurate insights, making Nectar your ultimate shopping companion.
+
+🔍 Larger Datasets: We're expanding and optimizing our algorithms, using bigger datasets to ensure you receive the most up-to-date and relevant information for your shopping and selling needs.
+
+Join us on this exciting journey to revolutionize the way you shop and sell online. Stay tuned for Nectar's amazing new features, all aimed at making your experience better than ever!
+
+Visit [www.nectar.compare](www.nectar.compare) and discover a world of smart shopping and profitable selling today. **DOESN'T WORK 🤩**
 
 <hr>
 
