@@ -1,5 +1,55 @@
-# Nectar
-Welcome to Nectar, your personalized e-commerce solution, meticulously crafted to cater to your every need. Discover a world of seamless shopping tailored just for you. Shop smarter, shop Nectar.
+<h1 align="center">
+  <img src="static/imgs/nectar.png" alt="logo">
+</h1>
+
+<h4 align="center">Welcome to Nectar, your personalized e-commerce solution, meticulously crafted to cater to your every need. Discover a world of seamless shopping tailored just for you. Shop smarter, shop Nectar.</h4>
+
+<hr>
+
+## Built with
+
+[![FLASK](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
+)](https://flask.palletsprojects.com/en/3.0.x/) [![NODE.JS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
+)](https://nodejs.org/en) [![JQUERY](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+)](https://jquery.com/)  [![TAILWINDCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
+)](https://tailwindcss.com/) 
+
+## Languages
+
+<a href="https://www.python.org/" target="_blank" rel="noreferrer"> 
+  <img
+    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+    alt="javascript"
+    width="40"
+    height="40"
+  />
+</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> 
+  <img
+    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+    alt="javascript"
+    width="40"
+    height="40"
+  />
+</a>
+<a href="https://www.w3.org/html/" target="_blank" rel="noreferrer">
+  <img
+    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg"
+    alt="html5"
+    width="40"
+    height="40"
+  />
+</a>
+<a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer">
+  <img
+    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg"
+    alt="css3"
+    width="40"
+    height="40"
+  />
+</a>
+
+<hr>
 
 ## Functionality
 ### Current Functionality
@@ -22,55 +72,48 @@ Another functionality we want to implement is a compare two items, and see which
 
 We also would like to proper display the statistical modeling simulation for both our buy and sell, and use a bigger dataset upon further optimizatoion of algorithms. 
 
-## Before...
-- You need:
-    - Git
-    - Node.js
-    - Python
-    - venv installed
-- venv can be installed by (depending on OS):
-- Windows
-```
-py -3 -m venv venv
-venv\Scripts\activate
-```
-- Linux
-```
-python3 -m venv venv
-. venv/bin/activate 
-```
-- Flask
-```
-pip install flask
+<hr>
+
+## How To Use
+
+To clone and run this application, you'll need: 
+* [Git](https://git-scm.com)
+* [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com))
+* [Python](https://www.python.org/downloads/)
+* [Virtual Environment and Flask](https://flask.palletsprojects.com/en/3.0.x/installation/)
+
+Then, from your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/andrearcaina/Nectar.git
+
+# Go into the repository
+$ cd Nectar
+
+# install virtual environment
+$ python3 -m venv .venv # for linux
+> py -3 -m venv .venv   # for windows
+
+# make sure you activate virtual environment
+$ .venv/bin/activate    # for linux
+> venv\Scripts\activate # for windows
+
+# install flask
+$ pip install Flask
+
+# install tailwindcss
+$ npm install
+
+# run tailwindcss configs
+$ npm run build
+
+# run app
+$ python main.py
 ```
 
-## Cloning the Web Application
-1. Clone the repo.
-```
-git clone https://github.com/andrearcaina/Nectar.git
-```
-2. Change into the repo directory.
-```
-cd Nectar
-```
-3. In your virtual environment, made sure you run main.py (depending on your os, this will be different). After that, see below for tailwind formatting.
-```
-py main.py # for windows
-python main.py # for mac/linux
-```
+<hr>
 
-
-## To Install and Run Tailwindcss
-
-Nectar uses Tailwind css. Run the following to get formatting, along with the flask run dev.
-
-To get started with that, see below.
-
-1. Ensure you install dependencies.
-```
-npm install
-```
-2. Then run build.
-```
-npm run build
-```
+## Winnings
+- Best E-commerce project
+- Most Creative Use of GitHub
