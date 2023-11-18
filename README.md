@@ -13,8 +13,9 @@
 )](https://nodejs.org/en) [![GIT](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white
 )](https://git-scm.com/) [![JQUERY](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 )](https://jquery.com/)  [![TAILWINDCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
-)](https://tailwindcss.com/) 
-- **BeautifulSoup4**
+)](https://tailwindcss.com/) [![BEAUTIFULSOUP4](https://img.shields.io/badge/BeautifulSoup4-14354C?style=for-the-badge&logo=python&logoColor=white
+)](https://pypi.org/project/beautifulsoup4/)
+
 ## Languages
 
 <a href="https://www.python.org/" target="_blank" rel="noreferrer"> 
@@ -104,7 +105,7 @@ $ python3 -m venv .venv # for linux
 
 # make sure you activate virtual environment
 $ .venv/bin/activate    # for linux
-> venv\Scripts\activate # for windows
+> .venv\Scripts\activate # for windows
 
 # install necessary dependencies 
 $ pip install -r requirements.txt
