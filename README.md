@@ -106,10 +106,10 @@ $ python3 -m venv .venv # for linux
 $ .venv/bin/activate    # for linux
 > venv\Scripts\activate # for windows
 
-# install flask
-$ pip install Flask
+# install necessary dependencies 
+$ pip install -r requirements.txt
 
-# install tailwindcss
+# install necessary packages
 $ npm install
 
 # run tailwindcss configs
