@@ -29,7 +29,7 @@ def scraper(url):
     #     if len(splitter) > 1: #reduce specifiy
     #         splitter.pop(-1)
     #        # splitter.pop(0) #optional
-       
+    
     
     if total_links < num*3:
         rating = "high"

@@ -13,7 +13,7 @@ def scrape(target_url):
             }
 
     resp = requests.get(url=target_url, headers=HEADERS)
-    soup = BeautifulSoup(resp.text,'lxml')
+    soup = BeautifulSoup(resp.text, 'html.parser')
 
     try:
         data["title"]=soup.find('h1',{'id':'title'}).text.lstrip().rstrip()

@@ -98,7 +98,7 @@ def get_data(prompt, num: int):
 			agentTag = tags[random.randint(0, 5)]
 			break
 		# Soup Object containing all data
-		soup = BeautifulSoup(webpage.content, "lxml")
+		soup = BeautifulSoup(webpage.content, "html.parser")
 
 		# Fetch links as List of Tag Objects
 		links = soup.find_all("a", attrs={'class':'a-link-normal s-no-outline'}, limit=50)
@@ -118,7 +118,7 @@ def get_data(prompt, num: int):
 				break
 			new_webpage = requests.get("https://www.amazon.com" + link, headers=HEADERS)
 			print('hel')
-			new_soup = BeautifulSoup(new_webpage.content, "lxml")
+			new_soup = BeautifulSoup(new_webpage.content, "html.parser")
 			print('hell')
 			price = get_price(new_soup)
 			# rating = get_rating(new_soup)
@@ -174,7 +174,7 @@ def get_data_info(prompt, num: int):
 			agentTag = tags[random.randint(0, 5)]
 			break
 		# Soup Object containing all data
-		soup = BeautifulSoup(webpage.content, "lxml")
+		soup = BeautifulSoup(webpage.content, "html.parser")
 
 		# Fetch links as List of Tag Objects
 		links = soup.find_all("a", attrs={'class':'a-link-normal s-no-outline'}, limit=50)
@@ -193,7 +193,7 @@ def get_data_info(prompt, num: int):
 			if len(results) > num:
 				break
 			new_webpage = requests.get("https://www.amazon.com" + link, headers=HEADERS)
-			new_soup = BeautifulSoup(new_webpage.content, "lxml")
+			new_soup = BeautifulSoup(new_webpage.content, "html.parser")
 			price = get_price(new_soup)
 			# rating = get_rating(new_soup)
 			# review = get_review_count(new_soup)
