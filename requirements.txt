@@ -15,6 +15,6 @@ pi==0.1.2
 pipp==0.0.1
 requests==2.31.0
 soupsieve==2.5
-urllib3==2.1.0
+urllib3==2.2.0
 Werkzeug==3.0.1
 zipp==3.17.0
