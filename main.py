@@ -45,4 +45,4 @@ def contact():
     return render_template('pages/contact.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=5000)
