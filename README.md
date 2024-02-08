@@ -9,47 +9,19 @@
 ## Built with
 
 [![FLASK](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
-)](https://flask.palletsprojects.com/en/3.0.x/) [![NODE.JS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
-)](https://nodejs.org/en) [![GIT](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white
-)](https://git-scm.com/) [![JQUERY](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+)](https://flask.palletsprojects.com/en/3.0.x/) [![JQUERY](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 )](https://jquery.com/)  [![TAILWINDCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
 )](https://tailwindcss.com/) [![BEAUTIFULSOUP4](https://img.shields.io/badge/BeautifulSoup4-14354C?style=for-the-badge&logo=python&logoColor=white
-)](https://pypi.org/project/beautifulsoup4/)
+)](https://pypi.org/project/beautifulsoup4/) [![NODE.JS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
+)](https://nodejs.org/en) [![GIT](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white
+)](https://git-scm.com/)
 
 ## Languages
 
-<a href="https://www.python.org/" target="_blank" rel="noreferrer"> 
-  <img
-    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
-    alt="javascript"
-    width="40"
-    height="40"
-  />
-</a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> 
-  <img
-    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
-    alt="javascript"
-    width="40"
-    height="40"
-  />
-</a>
-<a href="https://www.w3.org/html/" target="_blank" rel="noreferrer">
-  <img
-    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg"
-    alt="html5"
-    width="40"
-    height="40"
-  />
-</a>
-<a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer">
-  <img
-    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg"
-    alt="css3"
-    width="40"
-    height="40"
-  />
-</a>
+[![Python](https://skillicons.dev/icons?i=python)](https://www.python.org) 
+[![JavaScript](https://skillicons.dev/icons?i=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) 
+[![HTML](https://skillicons.dev/icons?i=html)](https://www.w3.org/html/)
+[![CSS](https://skillicons.dev/icons?i=css)](https://www.w3schools.com/css/)
 
 <hr>
 
