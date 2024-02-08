@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+from urllib.parse import urlparse
 import requests
 import re
 
@@ -13,7 +14,13 @@ def scrape(target_url):
     }
 
     try:
-        resp = requests.get(url=target_url, headers=HEADERS)
+        parsed_url = urlparse(target_url)
+        if parsed_url.scheme not in ['http', 'https']:
+            raise ValueError("Invalid URL scheme")
+        if not parsed_url.netloc:
+            raise ValueError("Invalid URL: netloc is empty")
+
+        resp = requests.get(url=target_url, headers=HEADERS)  # Pass target_url directly
         resp.raise_for_status()  # Raise HTTPError for non-2xx status codes
 
         soup = BeautifulSoup(resp.text, 'html.parser')
