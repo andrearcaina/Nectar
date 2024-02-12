@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
-from src.scraper import scraper
-from src.scrapey_multi import get_data
+from scrape.scraper import scraper
+from scrape.scrapey_multi import get_data
 app = Flask(__name__)
 
 @app.route('/')

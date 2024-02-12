@@ -1,5 +1,5 @@
-from src.scrapey import scrape
-from src.scrapey_multi import get_data_info
+from scrape.scrapey import scrape
+from scrape.scrapey_multi import get_data_info
 
 def scraper(url):
     data = scrape(url)
