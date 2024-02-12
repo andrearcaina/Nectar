@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="static/imgs/nectar.png" alt="logo">
+  <img src="frontend/public/images/nectar.png" alt="logo">
 </h1>
 
 <h4 align="center">Welcome to Nectar, your personalized e-commerce solution, meticulously crafted to cater to your every need. Discover a world of seamless shopping tailored just for you. Shop smarter, shop Nectar.</h4>
