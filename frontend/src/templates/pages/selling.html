@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='nectar.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tailwind.css') }}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <title>Nectar</title>
+    
+</head>
+<body>
+    {% include 'components/navbar.html' %}
+
+    <div class="container mx-auto p-4 text-center min-height: 1000px">
+        <h1 class="text-yellow-400 text-5xl font-bold p-8">Selling</h1>
+    
+        <div class="mt-4">
+            <p class="text-gray-600 text-2xl p-4 ">Prompt the form like: "shoe black nike" with spaces in between.</p>
+        </div>
+    
+        <form id="selling-form" class="mt-4 p-8">
+            <input type="text" id="user-sell" name="user_sell" placeholder="Enter your item description" required class="p-4 w-full px-3 py-5 border rounded-lg">
+            <button id="selling-input" type="button" class="mt-2 text-xl px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none">Sell</button>
+        </form>
+        
+        <div id="result1" class="mt-4 text-xl text-red-600"></div>
+
+        <div id="additional-info" class="pt-10 pb-10 mt-4 text-l text-gray-700"></div>
+    </div>    
+
+    {% include 'components/footer.html' %}
+</body>
+</html>

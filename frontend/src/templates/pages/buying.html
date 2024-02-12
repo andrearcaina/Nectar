@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='nectar.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tailwind.css') }}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <title>Nectar</title>
+    
+</head>
+<body>
+    {% include 'components/navbar.html' %}
+    <div class="flex flex-col items-center justify-center m-32">
+        <h1 class="text-5xl max-w-screen-lg text-gray-800 font-bold text-center mb-5">Looking to buy something?</h1>
+        <h3 class="text-3xl max-w-screen-lg text-gray-800 font-bold text-center mb-5">Enter your Amazon URL below to find related products and their prices!</h3>
+    </div>
+
+    <div class="flex justify-center items-center">
+        <form class="w-96 max-w-screen-xl py-8 px-6 border rounded-lg">   
+            <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                </div>
+                <input type="text" id="user-buy" name="user_buy" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 transition duration-300 ease-in-out transition-delay-100" placeholder="Enter your Amazon URL here!" required>
+                <button id="buying-input" type="button" class="text-white absolute right-2.5 bottom-2.5 bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div id="result2"></div>
+
+    {% include 'components/footer.html' %}
+</body>
+</html>
