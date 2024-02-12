@@ -1,9 +1,11 @@
 'use client';
+import { Description, Carousel } from '@/components';
 
 export default function Home() {
   return (
     <main>
-      Hello World!
+      <Description />
+      <Carousel />
     </main>
   );
 }

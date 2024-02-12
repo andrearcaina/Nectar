@@ -1,20 +1,18 @@
-import { Inter } from "next/font/google";
 import { Navbar, Footer } from "@/components";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Nectar",
   description: "Comparison Web App!",
+  icons: [{ url: '/images/icon.ico', rel: 'icon' }]
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-gray-100">
         <Navbar />
-        <main className={inter.className}>{children}</main>
+        <main className="space-y-20">{children}</main>
         <Footer />
       </body>
     </html>
