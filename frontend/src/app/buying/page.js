@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { Form } from '@/components';
+import Link from 'next/link';
 
 export default function selling() {
     const [data, setData] = useState('');
@@ -23,7 +24,7 @@ export default function selling() {
                 <div>
                     {data.info.map((item, index) => (
                         <div key={index} className="bg-white shadow-md rounded-lg p-4 mb-4">
-                            <a className="text-blue-500 hover:underline" href={item.link} target="_blank">{item.title}</a>
+                            <Link className="text-blue-500 hover:underline" href={item.link} target="_blank">{item.title}</Link>
                             <p className="text-gray-700">Price: ${item.price}</p>
                         </div>
                     ))}
