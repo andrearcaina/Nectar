@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-font {
+    font-family: 'Edu TAS Beginner', sans-serif;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-105%);
+    }
+}
+
+.pictures {
+    overflow: hidden;
+    padding: 60px 0;
+}
+
+.pictures-slide {
+    animation: 15s slide infinite linear;
+}
+
+.pictures-slide img {
+    height: 250px;
+    width: auto;
+    margin: 0 40px;
+    background-color: white;
+}

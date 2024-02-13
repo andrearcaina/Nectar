@@ -1,27 +1,28 @@
 <h1 align="center">
-  <img src="static/imgs/nectar.png" alt="logo">
+  <img src="frontend/public/images/nectar.png" alt="logo">
 </h1>
 
 <h4 align="center">Welcome to Nectar, your personalized e-commerce solution, meticulously crafted to cater to your every need. Discover a world of seamless shopping tailored just for you. Shop smarter, shop Nectar.</h4>
 
 <hr>
 
-## Built with
+## Tech Stack + How it Works
 
-[![FLASK](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
-)](https://flask.palletsprojects.com/en/3.0.x/) [![JQUERY](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-)](https://jquery.com/)  [![TAILWINDCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
-)](https://tailwindcss.com/) [![BEAUTIFULSOUP4](https://img.shields.io/badge/BeautifulSoup4-14354C?style=for-the-badge&logo=python&logoColor=white
-)](https://pypi.org/project/beautifulsoup4/) [![NODE.JS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
-)](https://nodejs.org/en) [![GIT](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white
-)](https://git-scm.com/)
+[![JAVASCRIPT](https://img.shields.io/badge/javascript-101010?style=for-the-badge&logo=javascript&logoColor=ffdd54)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![NEXT.JS](https://img.shields.io/badge/NEXT-0769AD?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TAILWINDCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/) \
+The frontend is developed using `JavaScript` and the Next.js framework, with Tailwind CSS as the chosen `CSS` framework.
 
-## Languages
+[![PYTHON](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/)
+[![FLASK](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/3.0.x/) 
+[![BEAUTIFULSOUP4](https://img.shields.io/badge/BeautifulSoup4-14354C?style=for-the-badge&logo=python&logoColor=white
+)](https://pypi.org/project/beautifulsoup4/) \
+The backend framework chosen for this project is Flask, a `Python`-based framework. Using Flask, we created API endpoints to communicate with the frontend (the client).
+With BeautifulSoup4, These endpoints are designed for scraping with e-commerce websites to gain public data such as product price, ratings, image, reviews, and availability.
 
-[![Python](https://skillicons.dev/icons?i=python)](https://www.python.org) 
-[![JavaScript](https://skillicons.dev/icons?i=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) 
-[![HTML](https://skillicons.dev/icons?i=html)](https://www.w3.org/html/)
-[![CSS](https://skillicons.dev/icons?i=css)](https://www.w3schools.com/css/)
+Here is a breakdown:
+
+- ...
 
 <hr>
 
@@ -36,7 +37,7 @@ Nectar is your go-to destination for smarter shopping and more profitable sellin
 
 💰 Sell Menu: Ready to sell your items? Explore the "Sell" menu! Nectar offers valuable insights into the market value of your products, helping you maximize your profits.
 
-BUT!
+## Future Updates
 
 We're not stopping here! Nectar has exciting plans for the future:
 
@@ -68,8 +69,8 @@ Then, from your command line:
 # Clone this repository
 $ git clone https://github.com/andrearcaina/Nectar.git
 
-# Go into the repository
-$ cd Nectar
+# Go into the backend folder
+$ cd Nectar/backend
 
 # install virtual environment
 $ python3 -m venv .venv # for linux
@@ -82,14 +83,17 @@ $ .venv/bin/activate    # for linux
 # install necessary dependencies 
 $ pip install -r requirements.txt
 
+# go to the frontend folder
+$ cd ../frontend
+
 # install necessary packages
 $ npm install
 
-# run tailwindcss configs
-$ npm run build
+# run server and client
+$ python backend/api/main.py
 
-# run app
-$ python main.py
+# in another terminal 
+$ npm run dev
 ```
 
 <hr>
