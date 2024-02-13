@@ -93,7 +93,7 @@ $ npm install
 $ python ../backend/api/server.py
 
 # in another terminal, run client
-$ npm run dev
+$ cd Nectar/frontend ; npm run dev
 ```
 
 <hr>
