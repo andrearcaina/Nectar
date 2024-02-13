@@ -89,10 +89,10 @@ $ cd ../frontend
 # install necessary packages
 $ npm install
 
-# run server and client
+# run server
 $ python backend/api/main.py
 
-# in another terminal 
+# in another terminal, run client
 $ npm run dev
 ```
 
