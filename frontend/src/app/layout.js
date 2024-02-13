@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="bg-gray-100">
         <Navbar />
-        <main className="space-y-20">{children}</main>
+        <main className="space-y-20 min-h-[80vh]">{children}</main>
         <Footer />
       </body>
     </html>

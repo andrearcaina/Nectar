@@ -4,7 +4,6 @@ import re
 
 def scrape(target_url):
     data={}
-    TRUSTED_URLS = ['https://www.amazon.com', 'http://www.amazon.com']
 
     HEADERS={
             "accept-language": "en-US,en;q=0.9",
@@ -13,15 +12,7 @@ def scrape(target_url):
             "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
             }
 
-    stripped_url = target_url.split('.com/')
-    stripped_url = stripped_url[0] + '.com'
-
-    if (target_url.startswith("http://") or target_url.startswith("https://")) and stripped_url in TRUSTED_URLS:
-        url = target_url
-    else:
-        return "Invalid URL"
-
-    resp = requests.get(url=url, headers=HEADERS)
+    resp = requests.get(url=target_url, headers=HEADERS)
     soup = BeautifulSoup(resp.text, 'html.parser')
 
     try:
