@@ -77,7 +77,7 @@ $ python3 -m venv .venv # for linux
 > py -3 -m venv .venv   # for windows
 
 # make sure you activate virtual environment
-$ .venv/bin/activate    # for linux
+$ source .venv/bin/activate    # for linux
 > .venv\Scripts\activate # for windows
 
 # install necessary dependencies 
