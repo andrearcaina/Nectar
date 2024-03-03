@@ -5,7 +5,9 @@ certifi==2024.2.2
 charset-normalizer==3.3.2
 click==8.1.7
 colorama==0.4.6
+docopt==0.6.2
 Flask==3.0.2
+Flask-Cors==4.0.0
 idna==3.6
 importlib-metadata==7.0.1
 itsdangerous==2.1.2
@@ -14,7 +16,9 @@ MarkupSafe==2.1.5
 pi==0.1.2
 pipp==0.0.1
 requests==2.31.0
+setuptools==65.5.0
 soupsieve==2.5
 urllib3==2.2.1
 Werkzeug==3.0.1
+yarg==0.1.9
 zipp==3.17.0
