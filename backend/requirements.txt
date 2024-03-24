@@ -16,7 +16,7 @@ MarkupSafe==2.1.5
 pi==0.1.2
 pipp==0.0.1
 requests==2.31.0
-setuptools==69.1.1
+setuptools==69.2.0
 soupsieve==2.5
 urllib3==2.2.1
 Werkzeug==3.0.1
