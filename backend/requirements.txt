@@ -19,6 +19,6 @@ requests==2.31.0
 setuptools==69.5.1
 soupsieve==2.5
 urllib3==2.2.1
-Werkzeug==3.0.2
+Werkzeug==3.0.3
 yarg==0.1.9
 zipp==3.18.1
