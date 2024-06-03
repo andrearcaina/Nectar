@@ -21,4 +21,4 @@ soupsieve==2.5
 urllib3==2.2.1
 Werkzeug==3.0.3
 yarg==0.1.9
-zipp==3.19.0
+zipp==3.19.1
